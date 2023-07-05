@@ -30,6 +30,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False)
 
+
+AUTH_USER_MODEL="accounts.CustomUser"
+    
+
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split()
 
 # Application definition
@@ -41,6 +45,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    "applications.category",
+    "applications.wine",
+    "accounts",
     
     "rest_framework",
     "drf_yasg",
@@ -48,8 +56,6 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "corsheaders",
     "djoser",
-    "applications.category",
-    "applications.wine",
 ]
 
 MIDDLEWARE = [
@@ -101,6 +107,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
